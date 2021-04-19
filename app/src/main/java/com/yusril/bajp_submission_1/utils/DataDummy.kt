@@ -5,7 +5,7 @@ import com.yusril.bajp_submission_1.data.MovieEntity
 
 object DataDummy {
 
-    fun generateDummyMovies(movieId: String): List<MovieEntity> {
+    fun generateDummyMovies(): List<MovieEntity> {
         val movies = ArrayList<MovieEntity>()
 
         movies.add(

@@ -11,4 +11,5 @@
     <color name="bg_primary">#111820</color>
     <color name="bg_secondary">#1C242B</color>
     <color name="bg_blue">#4B97C5</color>
+    <color name="bg_white">#FDFDFD</color>
 </resources>
