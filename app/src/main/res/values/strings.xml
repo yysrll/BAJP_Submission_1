@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">BAJP_submission_1</string>
+    <string name="app_name">Movie Catalogue</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="summary">Summary</string>
+    <string name="year">Year</string>
+    <string name="score">Score</string>
+    <string name="duration">Duration</string>
+    <string name="language">Language</string>
+    <string name="movies">Movies</string>
+    <string name="tv_show">TV Shows</string>
 </resources>
