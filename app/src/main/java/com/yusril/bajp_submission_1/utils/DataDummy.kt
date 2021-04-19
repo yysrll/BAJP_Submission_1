@@ -1,6 +1,6 @@
 package com.yusril.bajp_submission_1.utils
 
-import com.yusril.bajp_submission_1.data.GenreEntity
+import com.yusril.bajp_submission_1.R
 import com.yusril.bajp_submission_1.data.MovieEntity
 
 object DataDummy {
@@ -15,7 +15,8 @@ object DataDummy {
                 2019,
                 72,
                 "2h 2m",
-                "English"
+                "English",
+                R.drawable.poster_alita
             )
         )
 
@@ -26,7 +27,8 @@ object DataDummy {
                 2018,
                 69,
                 "2h 23m",
-                "English"
+                "English",
+                R.drawable.poster_aquaman
             )
         )
 
@@ -37,7 +39,8 @@ object DataDummy {
                 2018,
                 80,
                 "2h 15m",
-                "English"
+                "English",
+                R.drawable.poster_bohemian
             )
         )
 
@@ -48,7 +51,8 @@ object DataDummy {
                 2019,
                 57,
                 "1h 59m",
-                "English"
+                "English",
+                R.drawable.poster_cold_persuit
             )
         )
 
@@ -59,7 +63,8 @@ object DataDummy {
                 2018,
                 69,
                 "2h 10m",
-                "English"
+                "English",
+                R.drawable.poster_creed
             )
         )
 
@@ -70,7 +75,8 @@ object DataDummy {
                 2019,
                 67,
                 "2h 9m",
-                "English"
+                "English",
+                R.drawable.poster_glass
             )
         )
 
@@ -81,7 +87,8 @@ object DataDummy {
                 2019,
                 78,
                 "1h 44m",
-                "English"
+                "English",
+                R.drawable.poster_how_to_train
             )
         )
 
@@ -92,7 +99,8 @@ object DataDummy {
                 2018,
                 83,
                 "2h 29m",
-                "English"
+                "English",
+                R.drawable.poster_infinity_war
             )
         )
 
@@ -103,7 +111,8 @@ object DataDummy {
                 2018,
                 59,
                 "1h 47m",
-                "Cantonese"
+                "Cantonese",
+                R.drawable.poster_master_z
             )
         )
 
@@ -114,7 +123,8 @@ object DataDummy {
                 2018,
                 61,
                 "2h 9m",
-                "English"
+                "English",
+                R.drawable.poster_mortal_engines
             )
         )
 
@@ -133,8 +143,9 @@ object DataDummy {
                 2010,
                 81,
                 "42m",
-                "English"
-                )
+                "English",
+                R.drawable.poster_the_walking_dead
+            )
         )
 
         tvShows.add(
@@ -144,7 +155,8 @@ object DataDummy {
                 1989,
                 78,
                 "22m",
-                "English"
+                "English",
+                R.drawable.poster_the_simpson
             )
         )
 
@@ -155,7 +167,8 @@ object DataDummy {
                 2005,
                 82,
                 "45m",
-                "English"
+                "English",
+                R.drawable.poster_supernatural
             )
         )
 
@@ -166,7 +179,8 @@ object DataDummy {
                 2015,
                 72,
                 "42m",
-                "English"
+                "English",
+                R.drawable.poster_supergirl
             )
         )
 
@@ -177,7 +191,8 @@ object DataDummy {
                 2011,
                 80,
                 "57m",
-                "English"
+                "English",
+                R.drawable.poster_shameless
             )
         )
 
@@ -188,7 +203,8 @@ object DataDummy {
                 2017,
                 86,
                 "45m",
-                "English"
+                "English",
+                R.drawable.poster_riverdale
             )
         )
 
@@ -199,7 +215,8 @@ object DataDummy {
                 2013,
                 74,
                 "45m",
-                "English"
+                "English",
+                R.drawable.poster_ncis
             )
         )
 
@@ -210,7 +227,8 @@ object DataDummy {
                 2017,
                 66,
                 "55m",
-                "English"
+                "English",
+                R.drawable.poster_iron_fist
             )
         )
 
@@ -221,7 +239,8 @@ object DataDummy {
                 2019,
                 75,
                 "50m",
-                "English"
+                "English",
+                R.drawable.poster_hanna
             )
         )
 
@@ -232,7 +251,8 @@ object DataDummy {
                 2005,
                 82,
                 "43m",
-                "English"
+                "English",
+                R.drawable.poster_grey_anatomy
             )
         )
 
