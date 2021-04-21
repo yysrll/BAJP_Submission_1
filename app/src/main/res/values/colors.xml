@@ -12,4 +12,7 @@
     <color name="bg_secondary">#1C242B</color>
     <color name="bg_blue">#4B97C5</color>
     <color name="bg_white">#FDFDFD</color>
+    <color name="bg_yellow">#F3D541</color>
+    <color name="bg_red">#B93F5A</color>
+    <color name="bg_purple">#9B7FED</color>
 </resources>

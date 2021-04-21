@@ -1,8 +1,12 @@
 package com.yusril.bajp_submission_1.data
 
 import android.graphics.drawable.Drawable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class MovieEntity(
+    var id: String,
     var title: String,
     var summary: String,
     var year: Int,
@@ -10,4 +14,4 @@ data class MovieEntity(
     var duration: String,
     var language: String,
     var poster: Int
-)
+) : Parcelable
