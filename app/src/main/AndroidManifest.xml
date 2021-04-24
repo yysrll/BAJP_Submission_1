@@ -11,19 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BAJP_submission_1"
         tools:ignore="AllowBackup">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.home.HomeActivity" />
-
-        <activity android:name=".ui.detail.DetailActivity"
-            android:theme="@style/Theme.detail"/>
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name=".ui.splashscreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.home.HomeActivity" />
+
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:theme="@style/Theme.detail" />
+        <activity android:name=".ui.home.HomeActivity" />
     </application>
 
 </manifest>
