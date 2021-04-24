@@ -4,10 +4,10 @@
     package="com.yusril.bajp_submission_1">
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:parentActivityName=".HomeActivity"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BAJP_submission_1"
         tools:ignore="AllowBackup">
