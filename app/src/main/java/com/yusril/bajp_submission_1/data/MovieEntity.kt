@@ -1,6 +1,5 @@
 package com.yusril.bajp_submission_1.data
 
-import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 

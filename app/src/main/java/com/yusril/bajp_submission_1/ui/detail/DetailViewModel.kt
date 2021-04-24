@@ -1,6 +1,5 @@
 package com.yusril.bajp_submission_1.ui.detail
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.utils.DataDummy

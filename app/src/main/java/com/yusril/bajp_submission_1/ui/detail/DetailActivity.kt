@@ -1,5 +1,6 @@
 package com.yusril.bajp_submission_1.ui.detail
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -49,12 +50,14 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun populateDetailMovie(movie: MovieEntity) {
         Glide.with(this)
             .load(movie.poster)
             .into(binding.imgPoster)
+        binding.imgPoster.contentDescription = movie.poster.toString()
         binding.detailMovie.tvYear.text = movie.year.toString()
-        binding.detailMovie.tvScore.text = movie.score.toString()
+        binding.detailMovie.tvScore.text = movie.score.toString() + "/100"
         binding.detailMovie.tvLanguage.text = movie.language
         binding.detailMovie.tvDuration.text = movie.duration
         binding.detailMovie.tvSummary.text = movie.summary

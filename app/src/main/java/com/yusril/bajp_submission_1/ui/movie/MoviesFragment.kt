@@ -43,24 +43,24 @@ class MoviesFragment : Fragment() {
         Log.d("index", index.toString())
 
 
-            val viewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.NewInstanceFactory()
-            )[MovieViewModel::class.java]
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[MovieViewModel::class.java]
 
-            val movies = when (index) {
-                1 -> viewModel.getMovies()
-                else -> viewModel.getTvShows()
-            }
-            Log.d("movies", movies.toString())
+        val movies = when (index) {
+            1 -> viewModel.getMovies()
+            else -> viewModel.getTvShows()
+        }
+        Log.d("movies", movies.toString())
 
-            val adapter = MovieAdapter()
-            adapter.setMovies(movies)
-            with(fragmentMoviesBinding.rvMovies) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                this.adapter = adapter
-            }
+        val adapter = MovieAdapter()
+        adapter.setMovies(movies)
+        with(fragmentMoviesBinding.rvMovies) {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            this.adapter = adapter
+        }
 
     }
 
