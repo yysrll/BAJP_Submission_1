@@ -9,6 +9,7 @@ import org.junit.Before
 class DetailViewModelTest {
 
     private lateinit var viewModel: DetailViewModel
+    private var id: String = "id"
 
     private val movie = DataDummy.generateDummyMovies()[0]
     private val movieId = movie.id
@@ -19,12 +20,12 @@ class DetailViewModelTest {
     @Before
     fun setUp() {
         viewModel = DetailViewModel()
-        viewModel.setSelectedMovie(movieId)
+        viewModel.setSelectedMovie(id)
     }
 
     @Test
     fun getDetailMovie() {
-        viewModel.setSelectedMovie(movie.id)
+        viewModel.setSelectedMovie(movieId)
         val movieEntity = viewModel.getDetailMovie()
         assertNotNull(movieEntity)
         assertEquals(movie.id, movieEntity.id)
@@ -37,7 +38,7 @@ class DetailViewModelTest {
         assertEquals(movie.poster, movieEntity.poster)
 
 
-        viewModel.setSelectedMovie(tvShow.id)
+        viewModel.setSelectedMovie(tvShowId)
         val tvShowEntity = viewModel.getDetailMovie()
         assertNotNull(tvShowEntity)
         assertEquals(tvShow.id, tvShowEntity.id)
