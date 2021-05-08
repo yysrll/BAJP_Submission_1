@@ -49,12 +49,15 @@ class MoviesFragment : Fragment() {
             factory
         )[MovieViewModel::class.java]
 
+        fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
+
         if (index == 1) {
             viewModel.getMovies().observe(this, {movies ->
                 val adapter = MovieAdapter()
                 adapter.setMovies(movies)
                 adapter.notifyDataSetChanged()
                 fragmentMoviesBinding.rvMovies.adapter = adapter
+                fragmentMoviesBinding.progressBar.visibility = View.GONE
             })
         } else {
             viewModel.getTvShows().observe(this, { tvShows ->
@@ -62,6 +65,7 @@ class MoviesFragment : Fragment() {
                 adapter.setTvShow(tvShows)
                 adapter.notifyDataSetChanged()
                 fragmentMoviesBinding.rvMovies.adapter = adapter
+                fragmentMoviesBinding.progressBar.visibility = View.GONE
             })
         }
 
