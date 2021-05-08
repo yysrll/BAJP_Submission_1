@@ -79,31 +79,9 @@
             android:textColor="@color/bg_red"
             android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@id/tv_score"
-            app:layout_constraintRight_toLeftOf="@id/tv_duration"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/language" />
 
-        <ImageView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_time"
-            app:layout_constraintBottom_toTopOf="@id/tv_duration"
-            app:layout_constraintLeft_toLeftOf="@id/tv_duration"
-            app:layout_constraintRight_toRightOf="@id/tv_duration"
-            app:layout_constraintTop_toBottomOf="@id/line"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/duration"
-            android:textColor="@color/bg_purple"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toRightOf="@id/tv_language"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/duration" />
 
         <View
             android:id="@+id/line1"

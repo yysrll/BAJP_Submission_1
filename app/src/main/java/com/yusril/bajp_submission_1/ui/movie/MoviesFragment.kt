@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yusril.bajp_submission_1.R
 import com.yusril.bajp_submission_1.databinding.FragmentMoviesBinding
+import com.yusril.bajp_submission_1.viewmodel.ViewModelFactory
 
 class MoviesFragment : Fragment() {
 
@@ -31,7 +32,6 @@ class MoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         fragmentMoviesBinding = FragmentMoviesBinding.inflate(inflater, container, false)
         return fragmentMoviesBinding.root
     }
@@ -43,29 +43,33 @@ class MoviesFragment : Fragment() {
         Log.d("index", index.toString())
 
 
+        val factory = ViewModelFactory.getInstance(requireActivity())
         val viewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            factory
         )[MovieViewModel::class.java]
 
-        val movies = when (index) {
-            1 -> viewModel.getMovies()
-            else -> viewModel.getTvShows()
+        if (index == 1) {
+            viewModel.getMovies().observe(this, {movies ->
+                val adapter = MovieAdapter()
+                adapter.setMovies(movies)
+                adapter.notifyDataSetChanged()
+                fragmentMoviesBinding.rvMovies.adapter = adapter
+            })
+        } else {
+            viewModel.getTvShows().observe(this, { tvShows ->
+                val adapter = TvShowAdapter()
+                adapter.setTvShow(tvShows)
+                adapter.notifyDataSetChanged()
+                fragmentMoviesBinding.rvMovies.adapter = adapter
+            })
         }
-        Log.d("movies", movies.toString())
 
-        val adapter = MovieAdapter()
-        adapter.setMovies(movies)
         with(fragmentMoviesBinding.rvMovies) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
-            this.adapter = adapter
         }
 
-    }
-
-    private fun showRecyclerView() {
-        TODO("Not yet implemented")
     }
 
 }

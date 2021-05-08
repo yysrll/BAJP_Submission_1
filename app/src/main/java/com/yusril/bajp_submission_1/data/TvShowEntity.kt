@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MovieEntity(
+data class TvShowEntity(
     @SerializedName("id")
     var id: Int,
 
-    @SerializedName("original_title")
+    @SerializedName("original_name")
     var title: String,
 
     @SerializedName("overview")
     var summary: String,
 
-    @SerializedName("release_date")
+    @SerializedName("first_air_date")
     var year: String,
 
     @SerializedName("vote_average")
@@ -26,4 +26,4 @@ data class MovieEntity(
 
     @SerializedName("poster_path")
     var poster: String
-) : Parcelable
+): Parcelable

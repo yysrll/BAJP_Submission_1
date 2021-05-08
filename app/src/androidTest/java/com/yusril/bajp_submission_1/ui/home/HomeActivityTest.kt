@@ -9,7 +9,6 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.yusril.bajp_submission_1.R
-import com.yusril.bajp_submission_1.utils.DataDummy
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
 import org.junit.Test

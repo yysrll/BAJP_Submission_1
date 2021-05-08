@@ -1,34 +1,17 @@
 package com.yusril.bajp_submission_1.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.yusril.bajp_submission_1.data.MovieEntity
-import com.yusril.bajp_submission_1.utils.DataDummy
+import com.yusril.bajp_submission_1.data.TvShowEntity
+import com.yusril.bajp_submission_1.data.source.MovieRepository
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(private val movieRepository: MovieRepository) : ViewModel() {
 
-    private lateinit var movieId: String
+    var id: Int = 0
 
-    fun setSelectedMovie(movieId: String) {
-        this.movieId = movieId
-    }
+    fun getDetailMovie(): LiveData<MovieEntity> = movieRepository.getDetailMovie(id)
 
-    fun getDetailMovie(): MovieEntity {
-        lateinit var movie: MovieEntity
-        val moviesEntities = DataDummy.generateDummyMovies()
-        val tvShowEntities = DataDummy.generateDummyTvShow()
-
-        for (movieEntity in moviesEntities) {
-            if (movieEntity.id == movieId) {
-                movie = movieEntity
-            } else {
-                for (tvEntity in tvShowEntities) {
-                    if (tvEntity.id == movieId) {
-                        movie = tvEntity
-                    }
-                }
-            }
-        }
-        return movie
-    }
+    fun getDetailTvShow(): LiveData<TvShowEntity> = movieRepository.getDetailTvShow(id)
 
 }

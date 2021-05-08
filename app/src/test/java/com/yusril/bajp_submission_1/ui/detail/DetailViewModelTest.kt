@@ -1,6 +1,5 @@
 package com.yusril.bajp_submission_1.ui.detail
 
-import com.yusril.bajp_submission_1.utils.DataDummy
 import org.junit.Test
 
 import org.junit.Assert.*
