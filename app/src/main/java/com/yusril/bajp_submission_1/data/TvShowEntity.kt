@@ -26,4 +26,4 @@ data class TvShowEntity(
 
     @SerializedName("poster_path")
     var poster: String
-): Parcelable
+) : Parcelable

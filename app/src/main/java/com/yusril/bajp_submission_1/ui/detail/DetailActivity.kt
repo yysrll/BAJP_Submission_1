@@ -43,14 +43,14 @@ class DetailActivity : AppCompatActivity() {
             binding.collapsingToolbarLayout.title = movie.title
             viewModel.id = movie.id
 
-            viewModel.getDetailMovie().observe(this, {detailMovie ->
+            viewModel.getDetailMovie().observe(this, { detailMovie ->
                 populateDetailMovie(detailMovie)
             })
         } else {
             binding.collapsingToolbarLayout.title = tvShow.title
             viewModel.id = tvShow.id
 
-            viewModel.getDetailTvShow().observe(this, {DetailTvShow ->
+            viewModel.getDetailTvShow().observe(this, { DetailTvShow ->
                 populateDetailTvShow(DetailTvShow)
             })
         }
@@ -63,7 +63,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun populateDetailMovie(movie: MovieEntity) {
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/"+movie.poster)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.poster)
             .into(binding.imgPoster)
         binding.imgPoster.contentDescription = movie.poster.toString()
         binding.detailMovie.tvYear.text = movie.year
@@ -74,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun populateDetailTvShow(tvShow: TvShowEntity) {
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/"+tvShow.poster)
+            .load("https://image.tmdb.org/t/p/w500/" + tvShow.poster)
             .into(binding.imgPoster)
         binding.imgPoster.contentDescription = tvShow.poster
         binding.detailMovie.tvYear.text = tvShow.year

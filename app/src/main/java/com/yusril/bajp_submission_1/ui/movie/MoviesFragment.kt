@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yusril.bajp_submission_1.R
 import com.yusril.bajp_submission_1.databinding.FragmentMoviesBinding
 import com.yusril.bajp_submission_1.viewmodel.ViewModelFactory
 
@@ -52,7 +51,7 @@ class MoviesFragment : Fragment() {
         fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
 
         if (index == 1) {
-            viewModel.getMovies().observe(this, {movies ->
+            viewModel.getMovies().observe(this, { movies ->
                 val adapter = MovieAdapter()
                 adapter.setMovies(movies)
                 adapter.notifyDataSetChanged()

@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
-import com.yusril.bajp_submission_1.databinding.FragmentMoviesBinding
 import com.yusril.bajp_submission_1.databinding.ItemsMovieBinding
 import com.yusril.bajp_submission_1.ui.detail.DetailActivity
 
-class TvShowAdapter: RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
+class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
     private var listTvShows = ArrayList<TvShowEntity>()
 
@@ -21,13 +19,14 @@ class TvShowAdapter: RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
         this.listTvShows.addAll(tvShows)
     }
 
-    class TvShowViewHolder(private val binding: ItemsMovieBinding) : RecyclerView.ViewHolder(binding.root){
+    class TvShowViewHolder(private val binding: ItemsMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(tvShow: TvShowEntity) {
             with(binding) {
                 tvTitle.text = tvShow.title
                 tvYear.text = tvShow.year
                 Glide.with(itemView.context)
-                    .load("https://image.tmdb.org/t/p/w500/"+tvShow.poster)
+                    .load("https://image.tmdb.org/t/p/w500/" + tvShow.poster)
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
@@ -40,7 +39,8 @@ class TvShowAdapter: RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
-        val itemsMovieBinding = ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemsMovieBinding =
+            ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TvShowViewHolder(itemsMovieBinding)
     }
 

@@ -1,7 +1,6 @@
 package com.yusril.bajp_submission_1.data.source
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.remote.RemoteRepository

@@ -41,7 +41,7 @@ class RemoteRepository {
         return catalogue
     }
 
-    fun loadTvShowsCatalogue():LiveData<List<TvShowEntity>> {
+    fun loadTvShowsCatalogue(): LiveData<List<TvShowEntity>> {
         EspressoIdlingResource.increment()
         val catalogue = MutableLiveData<List<TvShowEntity>>()
         apiClient.getTvShowsCatalogue(API_KEY).enqueue(object : Callback<TvShowResponse> {
