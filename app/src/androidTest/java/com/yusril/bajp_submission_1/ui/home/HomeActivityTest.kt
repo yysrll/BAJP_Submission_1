@@ -1,25 +1,42 @@
 package com.yusril.bajp_submission_1.ui.home
 
 
+import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
 import com.yusril.bajp_submission_1.R
+import com.yusril.bajp_submission_1.utils.EspressoIdlingResource
 import org.hamcrest.core.AllOf.allOf
-import org.junit.Rule
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 
+
+@RunWith(AndroidJUnit4ClassRunner::class)
 class HomeActivityTest {
 
-    private val dummyMovies = DataDummy.generateDummyMovies()
-    private val dummyTvShows = DataDummy.generateDummyTvShow()
+    private lateinit var instrumentalContext: Context
 
-    @get:Rule
-    var activityRule = ActivityScenarioRule(HomeActivity::class.java)
+    @Before
+    fun setUp() {
+        instrumentalContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        ActivityScenario.launch(HomeActivity::class.java)
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.getEspressoIdlingResource())
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.getEspressoIdlingResource())
+    }
 
     @Test
     fun loadMovies() {
@@ -29,8 +46,20 @@ class HomeActivityTest {
                 withId(R.id.rv_movies),
                 isDisplayed()
             )
-        ).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovies.size - 1))
+        ).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(19))
 
+    }
+
+    @Test
+    fun loadTvShow() {
+        onView(withText("TV SHOWS")).perform(click())
+        onView(allOf(withId(R.id.rv_movies), isDisplayed()))
+        onView(
+            allOf(
+                withId(R.id.rv_movies),
+                isDisplayed()
+            )
+        ).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(19))
     }
 
     @Test
@@ -43,61 +72,11 @@ class HomeActivityTest {
         )
         onView(allOf(withId(R.id.detail_activity), isDisplayed())).perform(swipeUp())
         onView(allOf(withId(R.id.img_poster), isDisplayed()))
-        onView(allOf(withId(R.id.img_poster), isDisplayed())).check(
-            matches(
-                withContentDescription(
-                    dummyMovies[0].poster.toString()
-                )
-            )
-        )
         onView(allOf(withId(R.id.tv_year), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_year),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyMovies[0].year.toString())))
         onView(allOf(withId(R.id.tv_score), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_score),
-                isDisplayed()
-            )
-        ).check(matches(withText("${dummyMovies[0].score.toString()}/100")))
         onView(allOf(withId(R.id.tv_language), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_language),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyMovies[0].language)))
-        onView(allOf(withId(R.id.tv_duration), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_duration),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyMovies[0].duration)))
         onView(allOf(withId(R.id.tv_summary), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_summary),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyMovies[0].summary)))
         onView(isRoot()).perform(pressBack())
-    }
-
-    @Test
-    fun loadTvShow() {
-        onView(withText("TV SHOWS")).perform(click())
-        onView(allOf(withId(R.id.rv_movies), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.rv_movies),
-                isDisplayed()
-            )
-        ).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShows.size - 1))
     }
 
     @Test
@@ -111,48 +90,10 @@ class HomeActivityTest {
         )
         onView(allOf(withId(R.id.detail_activity), isDisplayed())).perform(swipeUp())
         onView(allOf(withId(R.id.img_poster), isDisplayed()))
-        onView(allOf(withId(R.id.img_poster), isDisplayed())).check(
-            matches(
-                withContentDescription(
-                    dummyTvShows[0].poster.toString()
-                )
-            )
-        )
         onView(allOf(withId(R.id.tv_year), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_year),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyTvShows[0].year.toString())))
         onView(allOf(withId(R.id.tv_score), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_score),
-                isDisplayed()
-            )
-        ).check(matches(withText("${dummyTvShows[0].score.toString()}/100")))
         onView(allOf(withId(R.id.tv_language), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_language),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyTvShows[0].language)))
-        onView(allOf(withId(R.id.tv_duration), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_duration),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyTvShows[0].duration)))
         onView(allOf(withId(R.id.tv_summary), isDisplayed()))
-        onView(
-            allOf(
-                withId(R.id.tv_summary),
-                isDisplayed()
-            )
-        ).check(matches(withText(dummyTvShows[0].summary)))
         onView(isRoot()).perform(pressBack())
     }
 }
