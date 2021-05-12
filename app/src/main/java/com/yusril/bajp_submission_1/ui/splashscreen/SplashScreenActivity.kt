@@ -24,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
             .load(R.drawable.icon)
             .into(binding.logo)
 
-        Handler().postDelayed({
+        Handler(mainLooper).postDelayed({
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }, 2000)
