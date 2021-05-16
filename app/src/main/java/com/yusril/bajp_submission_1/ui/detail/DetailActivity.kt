@@ -1,17 +1,14 @@
 package com.yusril.bajp_submission_1.ui.detail
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.yusril.bajp_submission_1.R
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
 import com.yusril.bajp_submission_1.databinding.ActivityDetailBinding
 import com.yusril.bajp_submission_1.ui.favorite.FavoriteViewModel
 import com.yusril.bajp_submission_1.viewmodel.ViewModelFactory
@@ -63,12 +60,14 @@ class DetailActivity : AppCompatActivity() {
                 when (isFavorite) {
                     true -> {
                         favViewModel.insertFavoriteMovie(movie)
-                        Toast.makeText(this, getString(R.string.insert_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.insert_success), Toast.LENGTH_SHORT)
+                            .show()
                         buttonChecked()
                     }
                     false -> {
                         favViewModel.deleteFavoriteMovie(movie.id)
-                        Toast.makeText(this, getString(R.string.delete_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.delete_success), Toast.LENGTH_SHORT)
+                            .show()
                         buttonChecked()
                     }
                 }
@@ -94,12 +93,14 @@ class DetailActivity : AppCompatActivity() {
                 when (isFavorite) {
                     true -> {
                         favViewModel.insertFavoriteTvShow(tvShow)
-                        Toast.makeText(this, getString(R.string.insert_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.insert_success), Toast.LENGTH_SHORT)
+                            .show()
                         buttonChecked()
                     }
                     false -> {
                         favViewModel.deleteFavoriteTvShow(tvShow.id)
-                        Toast.makeText(this, getString(R.string.delete_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.delete_success), Toast.LENGTH_SHORT)
+                            .show()
                         buttonChecked()
                     }
                 }

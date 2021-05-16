@@ -29,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.favorite_menu -> {
                 val i = Intent(this, FavoriteActivity::class.java)
                 startActivity(i)

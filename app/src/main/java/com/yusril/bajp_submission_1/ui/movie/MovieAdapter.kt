@@ -26,7 +26,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tvTitle.text = movie.title
                 tvYear.text = movie.year
                 Glide.with(itemView.context)
-                    .load("https://image.tmdb.org/t/p/w500/"+movie.poster)
+                    .load("https://image.tmdb.org/t/p/w500/" + movie.poster)
                     .into(imgPoster)
 
                 itemView.setOnClickListener {

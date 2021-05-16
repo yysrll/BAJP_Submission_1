@@ -6,11 +6,12 @@ import androidx.paging.PagedList
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.local.LocalRepository
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
-import com.yusril.bajp_submission_1.data.source.local.entity.TvShow
 import com.yusril.bajp_submission_1.data.source.remote.RemoteRepository
 
-class MovieRepository private constructor(private val remoteRepository: RemoteRepository, private val localRepository: LocalRepository) :
+class MovieRepository private constructor(
+    private val remoteRepository: RemoteRepository,
+    private val localRepository: LocalRepository
+) :
     MovieDataSource {
 
 
@@ -18,7 +19,10 @@ class MovieRepository private constructor(private val remoteRepository: RemoteRe
         @Volatile
         private var instance: MovieRepository? = null
 
-        fun getInstance(remoteRepository: RemoteRepository, localRepository: LocalRepository): MovieRepository =
+        fun getInstance(
+            remoteRepository: RemoteRepository,
+            localRepository: LocalRepository
+        ): MovieRepository =
             instance ?: synchronized(this) {
                 instance ?: MovieRepository(remoteRepository, localRepository).apply {
                     instance = this
@@ -60,7 +64,7 @@ class MovieRepository private constructor(private val remoteRepository: RemoteRe
     }
 
     override fun deleteFavoriteMovie(id: Int) {
-       return localRepository.deleteFavoriteMovie(id)
+        return localRepository.deleteFavoriteMovie(id)
     }
 
     override fun getFavoriteTvShow(): LiveData<PagedList<TvShowEntity>> {

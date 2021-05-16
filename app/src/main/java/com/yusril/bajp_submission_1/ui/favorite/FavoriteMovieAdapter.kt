@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yusril.bajp_submission_1.data.MovieEntity
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
 import com.yusril.bajp_submission_1.databinding.ItemsMovieBinding
 import com.yusril.bajp_submission_1.ui.detail.DetailActivity
-import com.yusril.bajp_submission_1.ui.movie.MovieAdapter
 
-class FavoriteMovieAdapter : PagedListAdapter<MovieEntity, FavoriteMovieAdapter.FavoriteMovieViewHolder>(DIFF_CALLBACK)  {
+class FavoriteMovieAdapter :
+    PagedListAdapter<MovieEntity, FavoriteMovieAdapter.FavoriteMovieViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
@@ -34,7 +33,7 @@ class FavoriteMovieAdapter : PagedListAdapter<MovieEntity, FavoriteMovieAdapter.
                 tvTitle.text = movie.title
                 tvYear.text = movie.year
                 Glide.with(itemView.context)
-                    .load("https://image.tmdb.org/t/p/w500/"+movie.poster)
+                    .load("https://image.tmdb.org/t/p/w500/" + movie.poster)
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
@@ -51,7 +50,7 @@ class FavoriteMovieAdapter : PagedListAdapter<MovieEntity, FavoriteMovieAdapter.
         viewType: Int
     ): FavoriteMovieViewHolder {
         val binding =
-        ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FavoriteMovieViewHolder(binding)
     }
 

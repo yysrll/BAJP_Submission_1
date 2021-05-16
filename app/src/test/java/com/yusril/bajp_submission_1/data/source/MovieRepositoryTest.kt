@@ -2,13 +2,10 @@ package com.yusril.bajp_submission_1.data.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.paging.DataSource
-import androidx.paging.PagedList
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.local.LocalRepository
-import com.yusril.bajp_submission_1.data.source.local.room.MovieDao
 import com.yusril.bajp_submission_1.data.source.remote.RemoteRepository
 import com.yusril.bajp_submission_1.utils.DataDummy
 import com.yusril.bajp_submission_1.utils.LiveDataTestUtil
@@ -18,7 +15,6 @@ import junit.framework.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -27,7 +23,6 @@ class MovieRepositoryTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
 
 
     private val remote = mock(RemoteRepository::class.java)
@@ -89,7 +84,8 @@ class MovieRepositoryTest {
 
     @Test
     fun getFavoriteMovie() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MovieEntity>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MovieEntity>
         `when`(local.getFavoriteMovie()).thenReturn(dataSourceFactory)
         movieRepository.getFavoriteMovie()
 
@@ -105,7 +101,8 @@ class MovieRepositoryTest {
         movieById.value = listOf(movie)
 
         `when`(movieRepository.getFavoriteMovieById(movie.id)).thenReturn(movieById)
-        val movieEntities = LiveDataTestUtil.getValue(movieRepository.getFavoriteMovieById(movie.id))
+        val movieEntities =
+            LiveDataTestUtil.getValue(movieRepository.getFavoriteMovieById(movie.id))
         verify(local).getFavoriteMovieById(movie.id)
         assertNotNull(movieEntities)
         assertEquals(movie.id, movieEntities[0].id)
@@ -127,7 +124,8 @@ class MovieRepositoryTest {
 
     @Test
     fun getFavoriteTvShow() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowEntity>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowEntity>
         `when`(local.getFavoriteTvShow()).thenReturn(dataSourceFactory)
         movieRepository.getFavoriteTvShow()
 
@@ -143,7 +141,8 @@ class MovieRepositoryTest {
         tvShowById.value = listOf(tvShow)
 
         `when`(movieRepository.getFavoriteTvShowById(tvShow.id)).thenReturn(tvShowById)
-        val tvShowEntities = LiveDataTestUtil.getValue(movieRepository.getFavoriteTvShowById(tvShow.id))
+        val tvShowEntities =
+            LiveDataTestUtil.getValue(movieRepository.getFavoriteTvShowById(tvShow.id))
         verify(local).getFavoriteTvShowById(tvShow.id)
         assertNotNull(tvShowEntities)
         assertEquals(tvShow.id, tvShowEntities[0].id)

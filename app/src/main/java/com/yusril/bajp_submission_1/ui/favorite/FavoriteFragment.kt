@@ -1,18 +1,13 @@
 package com.yusril.bajp_submission_1.ui.favorite
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yusril.bajp_submission_1.R
 import com.yusril.bajp_submission_1.databinding.FragmentFavoriteBinding
-import com.yusril.bajp_submission_1.ui.movie.MovieAdapter
-import com.yusril.bajp_submission_1.ui.movie.MoviesFragment
-import com.yusril.bajp_submission_1.ui.movie.TvShowAdapter
 import com.yusril.bajp_submission_1.viewmodel.ViewModelFactory
 
 class FavoriteFragment : Fragment() {
@@ -53,7 +48,7 @@ class FavoriteFragment : Fragment() {
                 val adapter = FavoriteMovieAdapter()
                 adapter.submitList(movies)
                 adapter.notifyDataSetChanged()
-                if (movies.isEmpty()){
+                if (movies.isEmpty()) {
                     binding.empty.visibility = View.VISIBLE
                 }
                 binding.rvFavorite.adapter = adapter
@@ -64,7 +59,7 @@ class FavoriteFragment : Fragment() {
                 val adapter = FavoriteTvShowAdapter()
                 adapter.submitList(tvShows)
                 adapter.notifyDataSetChanged()
-                if (tvShows.isEmpty()){
+                if (tvShows.isEmpty()) {
                     binding.empty.visibility = View.VISIBLE
                 }
                 binding.rvFavorite.adapter = adapter

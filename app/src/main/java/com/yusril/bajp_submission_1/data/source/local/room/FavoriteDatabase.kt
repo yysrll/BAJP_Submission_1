@@ -6,8 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
-import com.yusril.bajp_submission_1.data.source.local.entity.TvShow
 
 @Database(entities = [MovieEntity::class, TvShowEntity::class], version = 1, exportSchema = false)
 abstract class FavoriteDatabase : RoomDatabase() {

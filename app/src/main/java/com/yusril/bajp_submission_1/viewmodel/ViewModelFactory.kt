@@ -14,15 +14,15 @@ class ViewModelFactory private constructor(private val mMovieRepository: MovieRe
     ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        when {
+        return when {
             modelClass.isAssignableFrom(MovieViewModel::class.java) -> {
-                return MovieViewModel(mMovieRepository) as T
+                MovieViewModel(mMovieRepository) as T
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
-                return DetailViewModel(mMovieRepository) as T
+                DetailViewModel(mMovieRepository) as T
             }
             modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
-                return FavoriteViewModel(mMovieRepository) as T
+                FavoriteViewModel(mMovieRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel Class: " + modelClass.name)
         }

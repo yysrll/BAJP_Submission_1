@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
-import com.yusril.bajp_submission_1.data.source.local.entity.TvShow
 
 interface MovieDataSource {
 

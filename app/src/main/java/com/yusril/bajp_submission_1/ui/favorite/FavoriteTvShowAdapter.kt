@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yusril.bajp_submission_1.data.TvShowEntity
-import com.yusril.bajp_submission_1.data.source.local.entity.Movie
-import com.yusril.bajp_submission_1.data.source.local.entity.TvShow
 import com.yusril.bajp_submission_1.databinding.ItemsMovieBinding
 import com.yusril.bajp_submission_1.ui.detail.DetailActivity
-import com.yusril.bajp_submission_1.ui.movie.TvShowAdapter
 
-class FavoriteTvShowAdapter : PagedListAdapter<TvShowEntity, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
+class FavoriteTvShowAdapter :
+    PagedListAdapter<TvShowEntity, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>() {
@@ -23,7 +21,7 @@ class FavoriteTvShowAdapter : PagedListAdapter<TvShowEntity, FavoriteTvShowAdapt
             }
 
             override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
-               return oldItem == newItem
+                return oldItem == newItem
             }
 
         }
