@@ -96,4 +96,54 @@ class HomeActivityTest {
         onView(allOf(withId(R.id.tv_summary), isDisplayed()))
         onView(isRoot()).perform(pressBack())
     }
+
+    @Test
+    fun loadFavoriteMovie() {
+        onView(allOf(withId(R.id.rv_movies), isDisplayed())).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.fab_add)).perform(click())
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.favorite_menu)).perform(click())
+        onView(allOf(withId(R.id.rv_favorite), isDisplayed()))
+        onView(allOf(withId(R.id.rv_favorite), isDisplayed())).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.fab_add)).perform(click())
+        onView(isRoot()).perform(pressBack())
+        onView(isRoot()).perform(pressBack())
+
+    }
+
+    @Test
+    fun loadFavoriteTvShow() {
+        onView(withText("TV SHOWS")).perform(click())
+        onView(allOf(withId(R.id.rv_movies), isDisplayed())).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.fab_add)).perform(click())
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.favorite_menu)).perform(click())
+        onView(withText("TV SHOWS")).perform(click())
+        onView(allOf(withId(R.id.rv_favorite), isDisplayed()))
+        onView(allOf(withId(R.id.rv_favorite), isDisplayed())).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.fab_add)).perform(click())
+        onView(isRoot()).perform(pressBack())
+        onView(isRoot()).perform(pressBack())
+
+    }
 }
