@@ -51,7 +51,7 @@ class FavoriteFragment : Fragment() {
         if (index == 1) {
             viewModel.getFavoriteMovies().observe(this, { movies ->
                 val adapter = FavoriteMovieAdapter()
-                adapter.setMovies(movies)
+                adapter.submitList(movies)
                 adapter.notifyDataSetChanged()
                 if (movies.isEmpty()){
                     binding.empty.visibility = View.VISIBLE
@@ -62,7 +62,7 @@ class FavoriteFragment : Fragment() {
         } else {
             viewModel.getFavoriteTvShows().observe(this, { tvShows ->
                 val adapter = FavoriteTvShowAdapter()
-                adapter.setTvShow(tvShows)
+                adapter.submitList(tvShows)
                 adapter.notifyDataSetChanged()
                 if (tvShows.isEmpty()){
                     binding.empty.visibility = View.VISIBLE

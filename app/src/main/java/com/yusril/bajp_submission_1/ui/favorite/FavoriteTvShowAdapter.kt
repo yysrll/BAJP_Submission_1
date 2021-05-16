@@ -3,6 +3,8 @@ package com.yusril.bajp_submission_1.ui.favorite
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yusril.bajp_submission_1.data.TvShowEntity
@@ -12,14 +14,19 @@ import com.yusril.bajp_submission_1.databinding.ItemsMovieBinding
 import com.yusril.bajp_submission_1.ui.detail.DetailActivity
 import com.yusril.bajp_submission_1.ui.movie.TvShowAdapter
 
-class FavoriteTvShowAdapter : RecyclerView.Adapter<FavoriteTvShowAdapter.FavoriteTvShowViewHolder>() {
+class FavoriteTvShowAdapter : PagedListAdapter<TvShowEntity, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
 
-    private var listTvShows = ArrayList<TvShowEntity>()
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>() {
+            override fun areItemsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-    fun setTvShow(tvShow: List<TvShowEntity>?) {
-        if (tvShow == null) return
-        this.listTvShows.clear()
-        this.listTvShows.addAll(tvShow)
+            override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+               return oldItem == newItem
+            }
+
+        }
     }
 
     class FavoriteTvShowViewHolder(private val binding: ItemsMovieBinding) :
@@ -44,14 +51,14 @@ class FavoriteTvShowAdapter : RecyclerView.Adapter<FavoriteTvShowAdapter.Favorit
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTvShowViewHolder {
         val itemsMovieBinding =
             ItemsMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FavoriteTvShowAdapter.FavoriteTvShowViewHolder(itemsMovieBinding)
+        return FavoriteTvShowViewHolder(itemsMovieBinding)
     }
 
     override fun onBindViewHolder(holder: FavoriteTvShowViewHolder, position: Int) {
-        val tvShow = listTvShows[position]
-        holder.bind(tvShow)
+        val tvShow = getItem(position)
+        if (tvShow != null) {
+            holder.bind(tvShow)
+        }
     }
-
-    override fun getItemCount(): Int = listTvShows.size
 
 }

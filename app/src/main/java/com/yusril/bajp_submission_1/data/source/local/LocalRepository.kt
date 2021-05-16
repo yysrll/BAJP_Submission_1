@@ -3,6 +3,7 @@ package com.yusril.bajp_submission_1.data.source.local
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.local.entity.Movie
@@ -25,7 +26,7 @@ class LocalRepository(context: Context) {
         tvShowDao = db.tvShowDao()
     }
 
-    fun getFavoriteMovie(): LiveData<List<MovieEntity>> = movieDao.getFavoriteMovie()
+    fun getFavoriteMovie(): DataSource.Factory<Int, MovieEntity> = movieDao.getFavoriteMovie()
 
     fun getFavoriteMovieById(id: Int): LiveData<List<MovieEntity>> = movieDao.getFavoriteMovieById(id)
 
@@ -33,7 +34,7 @@ class LocalRepository(context: Context) {
 
     fun deleteFavoriteMovie(id: Int) = executorService.execute { movieDao.deleteFavoriteMovie(id) }
 
-    fun getFavoriteTvShow(): LiveData<List<TvShowEntity>> = tvShowDao.getFavoriteTvShow()
+    fun getFavoriteTvShow(): DataSource.Factory<Int, TvShowEntity> = tvShowDao.getFavoriteTvShow()
 
     fun getFavoriteTvShowById(id: Int): LiveData<List<TvShowEntity>> = tvShowDao.getFavoriteTvShowById(id)
 

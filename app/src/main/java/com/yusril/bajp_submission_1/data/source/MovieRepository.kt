@@ -1,6 +1,8 @@
 package com.yusril.bajp_submission_1.data.source
 
 import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.local.LocalRepository
@@ -40,8 +42,13 @@ class MovieRepository private constructor(private val remoteRepository: RemoteRe
         return remoteRepository.loadDetailTvShow(id)
     }
 
-    override fun getFavoriteMovie(): LiveData<List<MovieEntity>> {
-        return localRepository.getFavoriteMovie()
+    override fun getFavoriteMovie(): LiveData<PagedList<MovieEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localRepository.getFavoriteMovie(), config).build()
     }
 
     override fun getFavoriteMovieById(id: Int): LiveData<List<MovieEntity>> {
@@ -56,8 +63,13 @@ class MovieRepository private constructor(private val remoteRepository: RemoteRe
        return localRepository.deleteFavoriteMovie(id)
     }
 
-    override fun getFavoriteTvShow(): LiveData<List<TvShowEntity>> {
-        return localRepository.getFavoriteTvShow()
+    override fun getFavoriteTvShow(): LiveData<PagedList<TvShowEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localRepository.getFavoriteTvShow(), config).build()
     }
 
     override fun getFavoriteTvShowById(id: Int): LiveData<List<TvShowEntity>> {

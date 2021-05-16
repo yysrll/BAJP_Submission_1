@@ -1,6 +1,7 @@
 package com.yusril.bajp_submission_1.data.source
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 import com.yusril.bajp_submission_1.data.MovieEntity
 import com.yusril.bajp_submission_1.data.TvShowEntity
 import com.yusril.bajp_submission_1.data.source.local.entity.Movie
@@ -16,7 +17,7 @@ interface MovieDataSource {
 
     fun getDetailTvShow(id: Int): LiveData<TvShowEntity>
 
-    fun getFavoriteMovie(): LiveData<List<MovieEntity>>
+    fun getFavoriteMovie(): LiveData<PagedList<MovieEntity>>
 
     fun getFavoriteMovieById(id: Int): LiveData<List<MovieEntity>>
 
@@ -24,7 +25,7 @@ interface MovieDataSource {
 
     fun deleteFavoriteMovie(id: Int)
 
-    fun getFavoriteTvShow(): LiveData<List<TvShowEntity>>
+    fun getFavoriteTvShow(): LiveData<PagedList<TvShowEntity>>
 
     fun getFavoriteTvShowById(id: Int): LiveData<List<TvShowEntity>>
 
