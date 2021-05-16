@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.yusril.bajp_submission_1.data.source.MovieRepository
 import com.yusril.bajp_submission_1.di.Injection
 import com.yusril.bajp_submission_1.ui.detail.DetailViewModel
+import com.yusril.bajp_submission_1.ui.favorite.FavoriteViewModel
 import com.yusril.bajp_submission_1.ui.movie.MovieViewModel
 
 @Suppress("UNCHECKED_CAST")
@@ -19,6 +20,9 @@ class ViewModelFactory private constructor(private val mMovieRepository: MovieRe
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 return DetailViewModel(mMovieRepository) as T
+            }
+            modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
+                return FavoriteViewModel(mMovieRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel Class: " + modelClass.name)
         }

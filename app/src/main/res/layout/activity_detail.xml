@@ -52,4 +52,16 @@
         android:id="@+id/detail_movie"
         layout="@layout/detail_movie" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:foregroundGravity="bottom"
+        app:fabSize="normal"
+        app:layout_anchor="@id/detail_movie"
+        app:layout_anchorGravity="bottom|end"
+        android:src="@drawable/ic_language"
+        android:contentDescription="@string/app_name" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
