@@ -26,9 +26,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class FavoriteViewModelTest {
 
     private lateinit var viewModel: FavoriteViewModel
-    private val movieDummies = DataDummy.generateDummyMovies()
     private val movieDummiesByOne = DataDummy.generateDummyMovies()[0]
-    private val tvShowDummies = DataDummy.generateDummyTvShow()
     private val tvShowDummiesByOne = DataDummy.generateDummyTvShow()[0]
 
     @get:Rule
